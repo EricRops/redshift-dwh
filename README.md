@@ -3,7 +3,8 @@
 This project places myself as a Data Engineer for a fictional music streaming company called Sparkify. They have an expanded user and song database and want to move it onto the cloud. Their data resides on S3 (AWS storage service) as raw JSON files.
 
 ### Objective
-Build an ETL pipeline to extract the data from S3 into staging tables in Redshift, and transform the data into analytics tables following a typical STAR schema. The image below shows where this workflow is placed relative to the "Big Data Life Cycle" in AWS (image modified from Udacity course notes).  
+Build an ETL pipeline to extract the data from S3 into staging tables in Redshift, and transform the data into analytics tables following a typical STAR schema. The image below shows where this workflow is placed relative to the "Big Data Life Cycle" in AWS (image modified from Udacity course notes).
+
 <img src="images/BigData_Cycle.PNG"> 
 
 ### Song JSON data
@@ -34,12 +35,13 @@ The image below shows the relational properties of the final analytic tables. It
 - Included a function in **etl.py** to remove any duplicate rows from the tables (which can sometimes happen in Redshift since Primary Keys are not enforced)
 - Included the **notebooks/analytic_bashboard.ipynb** notebook with some visualizations of some basic queries. See sample query and resulting image below.
 
-### Sample SQL query for the top 10 artists of the Sparkify dataset
+### Sample SQL query for the top 10 artists among paid users from the Sparkify dataset
 ```
 SELECT a.name AS artist_name, COUNT(*) AS num_plays 
 FROM songplays s 
 JOIN artists a
 ON s.artist_id = a.artist_id
+AND s.level = 'paid'
 GROUP BY a.name 
 ORDER BY num_plays DESC 
 LIMIT 10;
