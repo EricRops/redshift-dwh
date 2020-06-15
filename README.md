@@ -3,7 +3,7 @@
 This project places myself as a Data Engineer for a fictional music streaming company called Sparkify. They have an expanded user and song database and want to move it onto the cloud. Their data resides on S3 (AWS storage service) as raw JSON files.
 
 ### Objective
-Build an ETL pipeline to extract the data from S3 into staging tables in Redshift, and transform the data into analytics tables following a typical STAR schema. The image below shows where this workflow is placed relative to the "Big Data Life Cycle" in AWS (image modified from Udacity course notes).
+Build an ETL pipeline to extract the data from S3 into staging tables in Redshift, and transform the data into analytics tables following a typical STAR schema. The image below shows where this workflow is placed relative to the "Big Data Life Cycle" in AWS (image modified from Udacity course notes).  
 <img src="images/BigData_Cycle.PNG"> 
 
 ### Song JSON data
