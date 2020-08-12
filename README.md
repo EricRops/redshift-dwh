@@ -18,16 +18,19 @@ Below is an example of what the data in 2018-11-12-events.json looks like:
 <img src="images/log-data.PNG">  
 
 ### Redshift database schema
-The image below shows the relational properties of the final analytic tables. It is a typical STAR schema, with the fact table (songplays) and 4 dimension tables. It is optimized for analytic queries to answer any questions on user songplay behavior!
+The image below shows the relational properties of the final analytic tables. 
+It is a typical STAR schema, with the fact table (songplays) and 4 dimension tables. 
+It is optimized for analytic queries to answer any questions on user songplay behavior! 
+
 <img src="images/ERD_rough.PNG" width="600" height="500">
 
 ### Instructions
 1. Open **config_info.txt** and populate the parameters with your own AWS settings. Save as **dwh.cfg**  
-2. Look through **sql_queries.py** to understand what SQL queries are used throughout the Python scripts.  
-3. Run **create_cluster.py** in terminal to create a Redshift cluster based on the **dwh.cfg** values
-4. Run **cluster_status.py** in terminal to see the cluster status, wait until status is "available" 
-5. Run **create_tables.py** in terminal to refresh and create the tables in Redshift
-6. Run **etl.py** to load the data from S3 to Redshift, and populate the analytics tables
+2. Look through **src/sql_queries.py** to understand what SQL queries are used throughout the Python scripts.  
+3. Run **src/create_cluster.py** in terminal to create a Redshift cluster based on the **dwh.cfg** values
+4. Run **src/cluster_status.py** in terminal to see the cluster status, wait until status is "available" 
+5. Run **src/create_tables.py** in terminal to refresh and create the tables in Redshift
+6. Run **src/etl.py** to load the data from S3 to Redshift, and populate the analytics tables
 7. Walk through **notebooks/analytic_bashboard.ipynb** to see some basic queries and findings of user preferences based on the data
 8. (Optional) Run **connect_terminal.py** to connect directly to the Redshift DB, and explore the tables using psql commands!
 
